@@ -1,6 +1,6 @@
 <template>
-  <div class="about-view">
-    Tentang sadar kawasan
+  <div class="blog-view">
+    Blog sadar kawasan
   </div>
 </template>
 

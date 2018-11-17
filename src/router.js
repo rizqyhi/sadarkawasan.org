@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import ConservationArea from './views/ConservationArea'
 
 Vue.use(Router)
 
@@ -10,16 +10,28 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'conservation.map',
+      component: ConservationArea
     },
     {
-      path: '/about',
+      path: '/jenis-kawasan',
+      name: 'conservation.type',
+      component: () => import(/* webpackChunkName: "conservation-are-type-view" */ './views/ConservationAreaType')
+    },
+    {
+      path: '/kampanye',
+      name: 'campaign',
+      component: () => import(/* webpackChunkName: "campaign-view" */ './views/Campaign')
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: () => import(/* webpackChunkName: "blog-view" */ './views/Blog')
+    },
+    {
+      path: '/tentang',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import(/* webpackChunkName: "about-view" */ './views/About')
     }
   ]
 })

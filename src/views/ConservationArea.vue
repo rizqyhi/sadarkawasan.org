@@ -1,6 +1,6 @@
 <template>
-  <div class="about-view">
-    Tentang sadar kawasan
+  <div class="conservation-area-view">
+    Kawasan konservasi
   </div>
 </template>
 

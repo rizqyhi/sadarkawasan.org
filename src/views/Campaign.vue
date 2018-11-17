@@ -1,6 +1,6 @@
 <template>
-  <div class="about-view">
-    Tentang sadar kawasan
+  <div class="campaign-view">
+    Kampanye sadar kawasan
   </div>
 </template>
 
