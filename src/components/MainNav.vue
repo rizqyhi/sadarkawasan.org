@@ -3,13 +3,13 @@
     <h1 class="app-title">Sadar kawasan</h1>
 
     <div class="app-nav">
-      <a
+      <router-link
         v-for="menu in menus"
         :key="menu.route"
-        :href="menu.route"
+        :to="menu.route"
         :class="{active: isActiveMenu(menu)}"
         @click="navigatePage(menu)"
-      >{{ menu.name }}</a>
+      >{{ menu.name }}</router-link>
     </div>
   </div>
 </template>
