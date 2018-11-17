@@ -31,6 +31,10 @@ describe('Showing app navigation', () => {
     expect(wrapper.findAll('.app-nav a')).toHaveLength(2)
   })
 
+  it('render the link to the menu item correctly', () => {
+    expect(wrapper.find('.app-nav a').html()).toMatch('href="home"')
+  })
+
   describe('when a menu item is clicked', () => {
     it('should trigger an event listener', () => {
       const menuClicked = jest.fn()

@@ -6,6 +6,7 @@
       <a
         v-for="menu in menus"
         :key="menu.route"
+        :href="menu.route"
         :class="{active: isActiveMenu(menu)}"
         @click="navigatePage(menu)"
       >{{ menu.name }}</a>
