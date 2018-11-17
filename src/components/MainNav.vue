@@ -32,8 +32,8 @@ export default {
 
   methods: {
     isActiveMenu (menu) {
-      return this.activeMenu.route
-        && this.activeMenu.route === menu.route
+      return this.activeMenu.route &&
+        this.activeMenu.route === menu.route
     },
 
     navigatePage (menu) {
