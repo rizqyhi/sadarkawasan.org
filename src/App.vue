@@ -2,7 +2,7 @@
   <div id="app">
     <b-container fluid>
       <b-row>
-        <main-nav :menus="menus" class="col-md-3" />
+        <main-nav :menus="menus" class="col-md-3 d-none d-md-block" />
         <b-col col offset-md="3">
           <router-view style="margin: 0 -15px;" />
         </b-col>
