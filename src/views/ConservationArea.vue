@@ -37,7 +37,8 @@ export default {
 
   methods: {
     resizeMap () {
-      this.$refs.caMap.style.height = window.innerHeight + 'px'
+      let offset = (document.documentElement.clientWidth < 768) ? 60 : 0
+      this.$refs.caMap.style.height = window.innerHeight - offset + 'px'
     }
   },
 
