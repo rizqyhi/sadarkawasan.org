@@ -44,6 +44,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.main-nav {
+  position: absolute !important;
+  height: 100%;
+  padding: 0 2rem !important;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 1px 0 50px 10px rgba(#42b983,0.09)
+}
 
 </style>
