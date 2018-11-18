@@ -38,15 +38,16 @@ export default {
   methods: {
     resizeMap () {
       this.$refs.caMap.style.height = window.innerHeight + 'px'
-
-      window.addEventListener('resize', () => {
-        this.$refs.caMap.style.height = window.innerHeight + 'px'
-      })
     }
   },
 
   mounted () {
     this.resizeMap()
+    window.addEventListener('resize', this.resizeMap)
+  },
+
+  destroyed () {
+    window.removeEventListener('resize', this.resizeMap)
   }
 }
 </script>
