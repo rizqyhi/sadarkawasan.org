@@ -76,6 +76,11 @@ export default {
     span {
       margin-right: .75rem;
     }
+
+    .router-link-exact-active {
+      padding-bottom: 2px;
+      border-bottom: 3px solid rgba($primary,.3)
+    }
   }
 }
 </style>
