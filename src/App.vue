@@ -1,7 +1,13 @@
 <template>
   <div id="app">
-    <main-nav :menus="menus" />
-    <router-view/>
+    <b-container fluid>
+      <b-row>
+        <main-nav :menus="menus" class="col-md-3" />
+        <b-col col offset-md="3">
+          <router-view style="margin: 0 -15px;" />
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -21,21 +27,14 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html, body {
+  min-height: 100%;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+html {
+  font-family: europa, sans-serif;
+}
+body {
+  background-color: #ebf2f1;
+  background-image: url('./assets/bg.svg');
 }
 </style>
