@@ -29,7 +29,7 @@
   margin: 0;
   font-size: 1.5rem;
   color: $green;
-  background: rgba($green, .05);
+  background: linear-gradient(40deg, rgba($green, .1), rgba($green, .05));
   border: none;
 
   span[class^="ti-"] {
