@@ -9,14 +9,10 @@
     <div class="app-nav">
       <b-nav vertical>
         <li v-for="menu in menus" :key="menu.route">
-          <router-link
-            :to="menu.route"
-            :class="{active: isActiveMenu(menu)}"
-            @click="navigatePage(menu)"
-          >
+          <router-link :to="menu.route">
             <span :class="`ti-${menu.icon}`"></span>
             {{ menu.name }}
-            </router-link>
+          </router-link>
         </li>
       </b-nav>
     </div>
@@ -31,23 +27,6 @@ export default {
       default: function () {
         return []
       }
-    }
-  },
-
-  data () {
-    return {
-      activeMenu: {}
-    }
-  },
-
-  methods: {
-    isActiveMenu (menu) {
-      return this.activeMenu.route &&
-        this.activeMenu.route === menu.route
-    },
-
-    navigatePage (menu) {
-      this.activeMenu = menu
     }
   }
 }
