@@ -1,6 +1,10 @@
 <template>
   <div class="main-nav">
-    <h1 class="app-title">Sadar kawasan</h1>
+    <h1 class="app-title">
+      <img src="../assets/logo.png" alt="Logo Sadarkawasan" width="140">
+    </h1>
+
+    <p class="mb-4"><em>Mengetahui, memahami, menyadari ke mana kita akan pergi.</em></p>
 
     <div class="app-nav">
       <router-link
@@ -54,4 +58,9 @@ export default {
   box-shadow: 1px 0 50px 10px rgba(#42b983,0.09)
 }
 
+.app-title {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
 </style>
