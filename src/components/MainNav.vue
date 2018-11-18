@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss">
 .main-nav {
-  position: absolute !important;
+  position: fixed !important;
   height: 100%;
   padding: 0 2rem !important;
   z-index: 999;
