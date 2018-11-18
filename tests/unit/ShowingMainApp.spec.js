@@ -18,9 +18,7 @@ beforeEach(() => {
     propsData: { menus },
     router,
     localVue,
-    stubs: {
-      'router-view': true
-    }
+    stubs: ['router-view', 'b-container', 'b-row', 'b-col', 'b-nav']
   })
 })
 
@@ -35,5 +33,7 @@ describe('Showing main app', () => {
     })
   })
 
-  it('render <router-view> component', () => {})
+  it('render <router-view> component', () => {
+    expect(wrapper.find('router-view-stub').exists()).toBe(true)
+  })
 })
