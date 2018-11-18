@@ -1,7 +1,10 @@
 <template>
-  <div class="about-view">
-    Tentang sadar kawasan
-  </div>
+  <page class="about-view">
+    <template slot="header">
+      <span class="ti-heart"></span>
+      Tentang Sadarkawasan.org
+    </template>
+  </page>
 </template>
 
 <script>
