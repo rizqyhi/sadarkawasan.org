@@ -7,13 +7,18 @@
     <p class="mb-4"><em>Mengetahui, memahami, menyadari ke mana kita akan pergi.</em></p>
 
     <div class="app-nav">
-      <router-link
-        v-for="menu in menus"
-        :key="menu.route"
-        :to="menu.route"
-        :class="{active: isActiveMenu(menu)}"
-        @click="navigatePage(menu)"
-      >{{ menu.name }}</router-link>
+      <b-nav vertical>
+        <li v-for="menu in menus" :key="menu.route">
+          <router-link
+            :to="menu.route"
+            :class="{active: isActiveMenu(menu)}"
+            @click="navigatePage(menu)"
+          >
+            <span :class="`ti-${menu.icon}`"></span>
+            {{ menu.name }}
+            </router-link>
+        </li>
+      </b-nav>
     </div>
   </div>
 </template>
@@ -62,5 +67,15 @@ export default {
   margin: 1rem 0;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.app-nav {
+  li {
+    padding: .5rem 0;
+
+    span {
+      margin-right: .75rem;
+    }
+  }
 }
 </style>
