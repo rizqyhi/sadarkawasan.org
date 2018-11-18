@@ -1,7 +1,10 @@
 <template>
-  <div class="blog-view">
-    Blog sadar kawasan
-  </div>
+  <page class="blog-view">
+    <template slot="header">
+      <span class="ti-notepad"></span>
+      Blog dan tulisan
+    </template>
+  </page>
 </template>
 
 <script>
