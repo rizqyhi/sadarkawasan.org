@@ -1,10 +1,13 @@
 <template>
   <div id="app">
+    <mobile-header @nav-toggled="updateNavToggle" />
     <b-container fluid>
       <b-row>
-        <main-nav :menus="menus" class="col-md-3 d-none d-md-block" />
+        <main-nav :menus="menus" :active="isNavOpened" class="col-md-3" />
         <b-col col offset-md="3">
-          <router-view style="margin: 0 -15px;" />
+          <transition name="fade" mode="out-in">
+            <router-view style="margin: 0 -15px;" />
+          </transition>
         </b-col>
       </b-row>
     </b-container>
@@ -13,14 +16,22 @@
 
 <script>
 import MainNav from '@/components/MainNav'
+import MobileHeader from '@/components/MobileHeader'
 import menu from '@/services/menu'
 
 export default {
-  components: { MainNav },
+  components: { MainNav, MobileHeader },
 
   data () {
     return {
-      menus: menu
+      menus: menu,
+      isNavOpened: false
+    }
+  },
+
+  methods: {
+    updateNavToggle (open) {
+      this.isNavOpened = open
     }
   }
 }
@@ -36,5 +47,19 @@ html {
 body {
   background-color: #ebf2f1;
   background-image: url('./assets/bg.svg');
+}
+#app {
+  padding-top: 60px;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 0
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

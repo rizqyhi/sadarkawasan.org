@@ -1,5 +1,5 @@
 <template>
-  <div class="main-nav">
+  <div :class="{'main-nav': true, 'main-nav--opened': active}">
     <h1 class="app-title">
       <img src="../assets/logo.png" alt="Logo Sadarkawasan" width="140">
     </h1>
@@ -27,7 +27,8 @@ export default {
       default: function () {
         return []
       }
-    }
+    },
+    active: Boolean
   }
 }
 </script>
@@ -37,9 +38,22 @@ export default {
   position: fixed !important;
   height: 100%;
   padding: 0 2rem !important;
-  z-index: 999;
+  z-index: 1001;
   background: #fff;
-  box-shadow: 1px 0 50px 10px rgba(#42b983,0.09)
+  box-shadow: 1px 0 50px 10px rgba($green,0.09);
+
+}
+
+@include media-breakpoint-down(sm) {
+  .main-nav {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all .3s ease-in-out;
+  }
+  .main-nav--opened {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .app-title {
