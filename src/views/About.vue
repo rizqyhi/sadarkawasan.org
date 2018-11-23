@@ -25,13 +25,8 @@
     <p>Situs ini dibangun sebagai media pelengkap kampanye #SadarKawasan, sekaligus sebagai referensi data status kawasan konservasi di Indonesia. Harapan kami, dengan situs ini masyarakat dapat mengetahui status dari suatu kawasan sebelum mengunjungi kawasan tersebut. Dan pada akhirnya turut berkontribusi dalam menjaga keseimbangan ekosistem kawasan konservasi di Indonesia.</p>
     <p>Kode sumber dan data pada situs ini bersifat terbuka. Siapa saja bisa berkontribusi untuk turut mengembangkan atau memperkaya data kawasan. Data yang dimasukkan tentu saja harus berasal dari sumber yang valid.</p>
     <ul>
-      <li>Respositori GitHub: <a href="https://github.com/rizqyhi/sadarkawasan.org">rizqyhi/sadarkawasan.org</a></li>
-      <li><a href="#" v-b-modal.license-modal>Lisensi software <em>opensource</em></a></li>
+      <li>Repositori GitHub: <a href="https://github.com/rizqyhi/sadarkawasan.org">rizqyhi/sadarkawasan.org</a></li>
     </ul>
-
-    <b-modal id="license-modal" title="Lisensi opensource" :hide-footer="true">
-      hello world
-    </b-modal>
   </page>
 </template>
 
