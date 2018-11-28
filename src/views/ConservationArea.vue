@@ -28,8 +28,6 @@ import { LMap, LMarker, LTooltip } from 'vue2-leaflet'
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
 import conservationAreaService from '@/services/conservationAreaService'
 
-delete L.Icon.Default.prototype._getIconUrl;
-
 export default {
   components: {
     LMap,
@@ -83,7 +81,7 @@ export default {
 
     showAreaDetail (area) {
       let slug = area.name.toLowerCase().trim().replace(/[\s\W-]+/g, '-')
-      this.$router.push('/kawasan/'+area.id+'/'+slug)
+      this.$router.push(`/kawasan/${area.id}/${slug}`)
     }
   },
 
