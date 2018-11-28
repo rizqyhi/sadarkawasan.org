@@ -5,7 +5,7 @@
       :center="map.center"
       :max-bounds="map.maxBounds"
       :options="map.options"
-      style="height: 100%"
+      style="height: 100vh"
       ref="caMap"
     >
       <v-tilelayer-googlemutant apikey="AIzaSyAZ9zikt49fhL3mdBLzU6iFaPXw6G8tV8M" />
@@ -82,16 +82,10 @@ export default {
   },
 
   mounted () {
-    this.$nextTick(() => {
-      this.$refs.caMap.mapObject.fitBounds(this.map.maxBounds)
-    })
+    this.getConservationAreas()
     this.resizeMap()
     window.addEventListener('resize', this.resizeMap)
 
-    this.getConservationAreas()
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'))
-    }, 250)
   },
 
   destroyed () {
