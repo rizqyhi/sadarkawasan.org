@@ -86,6 +86,9 @@ export default {
     this.resizeMap()
     window.addEventListener('resize', this.resizeMap)
 
+    this.$nextTick(() => {
+      this.$refs.caMap.mapObject.zoomControl.setPosition('bottomright')
+    })
   },
 
   destroyed () {
