@@ -14,6 +14,7 @@
         :key="area.id"
         :lat-lng="[area.lat, area.lng]"
         :title="area.name"
+        :icon="generateMarkerFor(area.type)"
         @click="showAreaDetail(area)">
         <l-tooltip>{{ area.name }}</l-tooltip>
       </l-marker>
@@ -28,13 +29,6 @@ import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
 import conservationAreaService from '@/services/conservationAreaService'
 
 delete L.Icon.Default.prototype._getIconUrl;
-
-L.Icon.Default.imagePath = '/';
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
 
 export default {
   components: {
@@ -73,6 +67,18 @@ export default {
       } catch (e) {
         console.log(e)
       }
+    },
+
+    generateMarkerFor (type = 'default') {
+      return L.icon({
+        iconUrl: require(`@/assets/marker-${type}.svg`),
+        shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize: [41, 41]
+      })
     },
 
     showAreaDetail (area) {
