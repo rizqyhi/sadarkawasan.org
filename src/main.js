@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
 import VueAnalytics from 'vue-analytics'
 import App from './App.vue'
 import router from './router'
@@ -9,7 +8,13 @@ import Loading from '@/components/Loading'
 
 import './styles/app.scss'
 
-Vue.use(BootstrapVue)
+import Layout from 'bootstrap-vue/es/components/layout'
+import Modal from 'bootstrap-vue/es/components/modal'
+import Nav from 'bootstrap-vue/es/components/nav'
+Vue.use(Layout)
+Vue.use(Modal)
+Vue.use(Nav)
+
 Vue.use(VueAnalytics, {
   id: 'UA-100268600-1',
   router,
