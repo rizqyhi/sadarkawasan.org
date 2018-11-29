@@ -14,5 +14,14 @@ export default {
         lng
       }
     })
+  },
+
+  async get (id) {
+    const area = await db.collection('kawasan').doc(id).get()
+
+    return {
+      id: area.id,
+      ...area.data()
+    }
   }
 }

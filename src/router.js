@@ -14,6 +14,11 @@ export default new Router({
       component: ConservationArea
     },
     {
+      path: '/kawasan/:id/:slug',
+      name: 'conservation.detail',
+      component: () => import(/* webpackChunkName: "conservation-are-type-view" */ './views/ConservationAreaDetail')
+    },
+    {
       path: '/jenis-kawasan',
       name: 'conservation.type',
       component: () => import(/* webpackChunkName: "conservation-are-type-view" */ './views/ConservationAreaType')
