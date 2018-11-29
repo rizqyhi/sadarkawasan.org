@@ -3,7 +3,6 @@ import BootstrapVue from 'bootstrap-vue'
 import VueAnalytics from 'vue-analytics'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import './registerServiceWorker'
 import Page from '@/components/Page'
 import Loading from '@/components/Loading'
@@ -28,6 +27,5 @@ Vue.component('loading', Loading)
 
 new Vue({
   router,
-  store,
   render: h => h(App)
 }).$mount('#app')
