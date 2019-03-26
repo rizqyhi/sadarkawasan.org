@@ -1,7 +1,7 @@
 <template>
   <page class="blog-view">
     <template slot="header">
-      <span class="ti-notepad"></span>
+      <span class="emojicon">📰</span>
       Blog dan tulisan
     </template>
 

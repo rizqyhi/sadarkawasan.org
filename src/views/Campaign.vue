@@ -1,11 +1,11 @@
 <template>
   <page class="campaign-view">
     <template slot="header">
-      <span class="ti-gallery"></span>
+      <span class="emojicon">📣</span>
       Media &amp; Kampanye
     </template>
 
-    <h3 class="section-title"><span class="ti-direction"></span> Video Edukasi</h3>
+    <h3 class="section-title"><span class="emojicon">💁‍♂️</span> Video Edukasi</h3>
     <hr>
     <loading v-if="isLoadingVideos" />
     <div class="row">
@@ -22,7 +22,7 @@
       </div>
     </b-modal>
 
-    <h3 class="section-title mt-5"><span class="ti-direction"></span> Feed Instagram</h3>
+    <h3 class="section-title mt-5"><span class="emojicon">💁‍♀️</span> Feed Instagram</h3>
     <hr>
     <loading v-if="isLoadingInstagramFeeds" />
     <div class="row">

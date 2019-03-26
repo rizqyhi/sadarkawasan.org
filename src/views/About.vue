@@ -1,7 +1,7 @@
 <template>
   <page class="about-view">
     <template slot="header">
-      <span class="ti-heart"></span>
+      <span class="emojicon">👋</span>
       Tentang #SadarKawasan
     </template>
 

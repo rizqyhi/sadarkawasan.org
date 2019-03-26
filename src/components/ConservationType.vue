@@ -11,9 +11,9 @@
           :key="activity.name"
           :class="['activity-item', `activity-item--${activity.type}`, activity.highlight && 'activity-item--highlight']"
         >
-          <span class="ti-check" v-if="activity.type === 'do'"></span>
-          <span class="ti-alert" v-else-if="activity.type === 'limited'"></span>
-          <span class="ti-na" v-else></span>
+          <span class="emojicon" v-if="activity.type === 'do'">✅</span>
+          <span class="emojicon" v-else-if="activity.type === 'limited'">⚠</span>
+          <span class="emojicon" v-else>🚫</span>
           {{ activity.name }}
         </li>
       </ul>

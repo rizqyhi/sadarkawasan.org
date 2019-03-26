@@ -10,7 +10,7 @@
       <b-nav vertical>
         <li v-for="menu in menus" :key="menu.route">
           <router-link :to="menu.route">
-            <span :class="`ti-${menu.icon}`"></span>
+            <span>{{ menu.icon }}</span>
             {{ menu.name }}
           </router-link>
         </li>

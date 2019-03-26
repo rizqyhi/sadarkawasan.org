@@ -1,7 +1,7 @@
 export default [
-  { route: '/', name: 'Peta Kawasan', icon: 'map-alt' },
-  { route: '/jenis-kawasan', name: 'Kenali Kawasan', icon: 'blackboard' },
-  { route: '/kampanye', name: 'Kampanye', icon: 'gallery' },
-  { route: '/blog', name: 'Blog', icon: 'notepad' },
-  { route: '/tentang', name: 'Tentang', icon: 'heart' }
+  { route: '/', name: 'Peta Kawasan', icon: '🗺' },
+  { route: '/jenis-kawasan', name: 'Kenali Kawasan', icon: '📖' },
+  { route: '/kampanye', name: 'Kampanye', icon: '📣' },
+  { route: '/blog', name: 'Blog', icon: '📰' },
+  { route: '/tentang', name: 'Tentang', icon: '👋' }
 ]

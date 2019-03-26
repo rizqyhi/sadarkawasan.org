@@ -2,7 +2,7 @@
   <page class="conservation-area-type-view">
     <template slot="header">
       <loading v-if="loading" />
-      <span class="ti-direction-alt" v-if="!loading"></span>
+      <span class="emojicon" v-if="!loading">🌏</span>
       {{ conservationArea.name }}
     </template>
 
@@ -25,16 +25,16 @@
 
     <div class="row">
       <div class="col-md-8">
-        <h4 class="section-title"><span class="ti-light-bulb"></span> Detail Kawasan</h4>
+        <h4 class="section-title"><span class="emojicon">💡</span> Detail Kawasan</h4>
         <hr>
         <p>{{ conservationArea.description }}</p>
-        <p><strong>Luas Kawasan: </strong>{{ conservationArea.area }}</p>
-        <p><strong>Flora: </strong><span v-html="formatScientificName(conservationArea.flora)" /></p>
-        <p><strong>Fauna: </strong><span v-html="formatScientificName(conservationArea.fauna)" /></p>
+        <p><strong>🗺 Luas Kawasan: </strong>{{ conservationArea.area }}</p>
+        <p><strong>🌲 Flora: </strong><span v-html="formatScientificName(conservationArea.flora)" /></p>
+        <p><strong>🦏 Fauna: </strong><span v-html="formatScientificName(conservationArea.fauna)" /></p>
       </div>
 
       <div class="col">
-        <h4 class="section-title"><span class="ti-location-pin"></span> Lokasi</h4>
+        <h4 class="section-title"><span class="emojicon">📍</span> Lokasi</h4>
         <hr>
         <p>{{ conservationArea.location }}</p>
         <p>
@@ -42,7 +42,7 @@
           <code>{{ conservationArea.lng.toFixed(5) }}</code><sup>&deg;</sup> BT
         </p>
 
-        <h4 class="section-title mt-5"><span class="ti-info-alt"></span> Narahubung</h4>
+        <h4 class="section-title mt-5"><span class="emojicon">☎</span> Narahubung</h4>
         <hr>
         <p v-for="(contact, i) in conservationArea.contacts" :key="i">
           <strong>{{ contact.name }}</strong><br>
@@ -54,7 +54,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <h4 class="section-title mt-5"><span class="ti-files"></span> Sumber Data</h4>
+        <h4 class="section-title mt-5"><span class="emojicon">📑</span> Sumber Data</h4>
         <hr>
         <ol>
           <li v-for="(source, i) in conservationArea.dataSources" :key="i">{{ source.source }}</li>
