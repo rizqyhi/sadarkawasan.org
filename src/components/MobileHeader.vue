@@ -41,8 +41,9 @@ export default {
 <style lang="scss">
 $hamburger-padding-x: 10px;
 $hamburger-padding-y: 0;
-$hamburger-layer-width: 32px;
+$hamburger-layer-width: 24px;
 $hamburger-layer-spacing: 4px;
+$hamburger-layer-color: #28a745;
 $hamburger-types: (slider);
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
