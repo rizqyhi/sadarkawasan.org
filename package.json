@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
     "firebase": "^5.5.9",
+    "hamburgers": "^1.1.3",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
     "vue-analytics": "^5.16.1",

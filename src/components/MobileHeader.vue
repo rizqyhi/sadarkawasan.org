@@ -1,10 +1,16 @@
 <template>
   <div class="mobile-header d-block d-md-none">
-    <a href="#" class="mobile-header__nav-toggle" @click.prevent="toggleNav()">
-      <span class="ti-menu" v-if="!isNavOpened"></span>
-      <span class="ti-close" v-else></span>
-    </a>
-    <span class="mobile-header__app-name">Sadarkawasan</span>
+    <button
+      type="button"
+      class="hamburger hamburger--slider"
+      :class="{'is-active': isNavOpened}"
+      @click.prevent="toggleNav"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <span class="mobile-header__app-name">Sadar Kawasan</span>
   </div>
 </template>
 
@@ -33,6 +39,22 @@ export default {
 </script>
 
 <style lang="scss">
+$hamburger-padding-x: 10px;
+$hamburger-padding-y: 0;
+$hamburger-layer-width: 32px;
+$hamburger-layer-spacing: 4px;
+$hamburger-types: (slider);
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+
+.hamburger {
+  vertical-align: middle;
+
+  &:focus, &:active {
+    outline: none;
+    box-shadow: none
+  }
+}
+
 .mobile-header {
   position: fixed;
   width: 100%;
