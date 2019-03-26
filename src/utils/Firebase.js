@@ -23,7 +23,7 @@ const settings = {
 }
 db.settings(settings)
 
-firebase.firestore().enablePersistence()
+firebase.firestore().enablePersistence({ experimentalTabSynchronization: true })
   .catch(err => {
     console.error('Firestore persistence failed:', err)
   })
