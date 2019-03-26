@@ -8,9 +8,18 @@
       style="height: 100vh"
       ref="caMap"
     >
-      <v-tilelayer-googlemutant apikey="AIzaSyAZ9zikt49fhL3mdBLzU6iFaPXw6G8tV8M" />
+      <l-control position="topleft">
+        <map-search-control v-model="searchTerm"></map-search-control>
+      </l-control>
+
+      <l-control position="topleft">
+        <map-filter-control v-model="typeFilters"></map-filter-control>
+      </l-control>
+
+      <v-tilelayer-googlemutant :apikey="gmapsApiKey" />
+
       <l-marker
-        v-for="area in conservationAreas"
+        v-for="area in filteredConservationAreas"
         :key="area.id"
         :lat-lng="[area.lat, area.lng]"
         :title="area.name"
@@ -24,8 +33,10 @@
 
 <script>
 import L from 'leaflet'
-import { LMap, LMarker, LTooltip } from 'vue2-leaflet'
+import { LMap, LMarker, LTooltip, LControl } from 'vue2-leaflet'
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
+import MapSearchControl from '@/components/MapSearchControl'
+import MapFilterControl from '@/components/MapFilterControl'
 import conservationAreaService from '@/services/conservationAreaService'
 
 export default {
@@ -33,11 +44,15 @@ export default {
     LMap,
     LMarker,
     LTooltip,
+    LControl,
+    MapSearchControl,
+    MapFilterControl,
     'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant
   },
 
   data () {
     return {
+      gmapsApiKey: process.env.VUE_APP_GMAPS_KEY,
       map: {
         minZoom: 5,
         center: L.latLng(-2.5, 118),
@@ -46,7 +61,20 @@ export default {
           zoomSnap: 0.5
         }
       },
-      conservationAreas: []
+      conservationAreas: [],
+      filteredConservationAreas: [],
+      typeFilters: ['ca', 'sm', 'tn', 'thr', 'twa'],
+      searchTerm: ''
+    }
+  },
+
+  watch: {
+    searchTerm () {
+      this.filterAreas()
+    },
+
+    typeFilters () {
+      this.filterAreas()
     }
   },
 
@@ -62,9 +90,20 @@ export default {
       try {
         const areas = await conservationAreaService.getAll()
         this.conservationAreas = areas
+        this.filterAreas()
       } catch (e) {
         console.log(e)
       }
+    },
+
+    filterAreas () {
+      this.filteredConservationAreas = this.conservationAreas
+        .filter(area => {
+          return this.typeFilters.indexOf(area.type) > -1
+        })
+        .filter(area => {
+          return area.name.toLowerCase().search(this.searchTerm) > -1
+        })
     },
 
     generateMarkerFor (type = 'default') {

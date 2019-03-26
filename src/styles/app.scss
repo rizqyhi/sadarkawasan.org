@@ -2,3 +2,7 @@
 @import "bootstrap";
 // @import "../../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 @import "../../node_modules/leaflet/dist/leaflet.css";
+
+.leaflet-container {
+  font-family: $font-family-base;
+}

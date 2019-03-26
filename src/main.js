@@ -11,9 +11,11 @@ import './styles/app.scss'
 import Layout from 'bootstrap-vue/es/components/layout'
 import Modal from 'bootstrap-vue/es/components/modal'
 import Nav from 'bootstrap-vue/es/components/nav'
+import Dropdown from 'bootstrap-vue/es/components/dropdown'
 Vue.use(Layout)
 Vue.use(Modal)
 Vue.use(Nav)
+Vue.use(Dropdown)
 
 Vue.use(VueAnalytics, {
   id: 'UA-100268600-1',
