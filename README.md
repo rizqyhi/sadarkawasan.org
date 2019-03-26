@@ -1,36 +1,7 @@
 # sadarkawasan
 
-## Project setup
-```
-npm install
-```
+SadarKawasan.org bermula dari gerakan kampanye Sadar Kawasan di Instagram. Kampanye ini mengajak para penggiat kegiatan luar ruang untuk lebih peduli dan menyadari status kawasan yang akan dikunjungi. Terlebih kawasan Cagar Alam yang seharusnya hanya boleh dikunjungi untuk penelitian dan pengembangan, bukan untuk kegiatan wisata.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Situs ini dibuat untuk menjadi referensi kawasan konservasi di Indonesia, sehingga memudahkan orang-orang untuk mencari tahu profil tentang kawasan yang akan mereka kunjungi. Yang pada akhirnya dapat menjadi salah satu pertimbangan dalam merencanakan dan melakukan kegiatan luar ruang.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
+Data-data di situs ini berasal dari berbagai sumber yang tercantum untuk tiap profil kawasan. Data diolah dan disunting oleh relawan.
