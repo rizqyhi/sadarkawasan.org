@@ -28,9 +28,21 @@
         <h4 class="section-title"><span class="emojicon">💡</span> Detail Kawasan</h4>
         <hr>
         <p>{{ conservationArea.description }}</p>
-        <p><strong>🗺 Luas Kawasan: </strong>{{ conservationArea.area }}</p>
-        <p><strong>🌲 Flora: </strong><span v-html="formatScientificName(conservationArea.flora)" /></p>
-        <p><strong>🦏 Fauna: </strong><span v-html="formatScientificName(conservationArea.fauna)" /></p>
+
+        <table class="table">
+          <tr>
+            <th width="20%">🗺 Luas</th>
+            <td>{{ conservationArea.area }}</td>
+          </tr>
+          <tr>
+            <th>🌲 Flora</th>
+            <td v-html="formatScientificName(conservationArea.flora)"></td>
+          </tr>
+          <tr>
+            <th>🦏 Fauna</th>
+            <td v-html="formatScientificName(conservationArea.fauna)"></td>
+          </tr>
+        </table>
       </div>
 
       <div class="col">
@@ -129,8 +141,9 @@ export default {
     },
 
     formatScientificName (text) {
-      let formattedText = text.replace(/(\(.*?\))/g, '<em>$1</em>')
-      return formattedText
+      return text
+        .replace(/(\(.*?\))/g, '<em>$1</em>')
+        .replace(/(,)/g, '<br>')
     }
   },
 
