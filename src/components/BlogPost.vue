@@ -1,6 +1,6 @@
 <template>
   <div class="blog-post">
-    <h6 class="blog-post__title"><a :href="url" target="_blank">{{ title }} <span class="ti-new-window"></span></a></h6>
+    <h6 class="blog-post__title"><a :href="url" target="_blank">{{ title }} <span class="emojicon">↗</span></a></h6>
     <div class="blog-post__content" v-html="content"></div>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
       url: this.post.URL,
       date: this.post.date,
       title: this.post.title,
-      content: this.post.excerpt.substr(0, 240) + ' &hellip;'
+      content: this.post.excerpt
     }
   }
 }
