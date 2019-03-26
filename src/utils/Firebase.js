@@ -23,6 +23,11 @@ const settings = {
 }
 db.settings(settings)
 
+firebase.firestore().enablePersistence()
+  .catch(err => {
+    console.error('Firestore persistence failed:', err)
+  })
+
 // firebase collections
 const kawasanCollection = db.collection('kawasan')
 
