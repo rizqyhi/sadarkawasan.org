@@ -16,7 +16,12 @@
         <map-filter-control v-model="typeFilters"></map-filter-control>
       </l-control>
 
-      <v-tilelayer-googlemutant :apikey="gmapsApiKey" />
+      <v-tilelayer-googlemutant
+        :apikey="gmapsApiKey"
+        :options="{ type: 'terrain' }"
+        lang="id"
+        region="ID"
+      ></v-tilelayer-googlemutant>
 
       <l-geo-json
         :geojson="fallbackMapData"
@@ -38,8 +43,8 @@
 
 <script>
 import L from 'leaflet'
-import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
 import { LMap, LMarker, LTooltip, LControl, LGeoJson } from 'vue2-leaflet'
+import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant/Vue2LeafletGoogleMutant'
 import MapSearchControl from '@/components/MapSearchControl'
 import MapFilterControl from '@/components/MapFilterControl'
 import conservationAreaService from '@/services/conservationAreaService'

@@ -19,7 +19,7 @@
     "vue-analytics": "^5.16.1",
     "vue-router": "^3.0.1",
     "vue2-leaflet": "^1.2.3",
-    "vue2-leaflet-googlemutant": "^1.0.2",
+    "vue2-leaflet-googlemutant": "github:rizqyhi/vue2-leaflet-googlemutant#patch-localization",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
