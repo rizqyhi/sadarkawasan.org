@@ -1,5 +1,5 @@
 <template>
-  <page class="conservation-area-type-view">
+  <page class="conservation-area-type-view" v-if="conservationArea">
     <template slot="header">
       <loading v-if="loading" />
       <span class="emojicon" v-if="!loading">🌏</span>
@@ -119,18 +119,11 @@ export default {
         color: '#28a745'
       },
       loading: true,
-      conservationArea: {}
+      conservationArea: null
     }
   },
 
   methods: {
-    resizeMap () {
-      this.$nextTick(() => {
-        let offset = (document.documentElement.clientWidth < 768) ? 60 : 0
-        this.$refs.caMap.$el.style.height = window.innerHeight - offset + 'px'
-      })
-    },
-
     async getConservationArea (id) {
       try {
         const area = await conservationAreaService.get(id)
@@ -139,7 +132,8 @@ export default {
 
         this.$nextTick(() => {
           const map = this.$refs.caMap.mapObject
-          map.flyTo(L.latLng(area.lat, area.lng), 12)
+          map.zoomControl.setPosition('bottomright')
+          map.flyTo(L.latLng(area.lat, area.lng))
           L.polygon(area.boundaries.map(coord => [coord.lat, coord.lng])).addTo(map)
         })
       } catch (e) {
@@ -178,16 +172,6 @@ export default {
   mounted () {
     this.getConservationArea(this.$route.params.id)
     this.fetchFallbackMap()
-    // this.resizeMap()
-    // window.addEventListener('resize', this.resizeMap)
-
-    this.$nextTick(() => {
-      this.$refs.caMap.mapObject.zoomControl.setPosition('bottomright')
-    })
-  },
-
-  destroyed () {
-    // window.removeEventListener('resize', this.resizeMap)
   }
 }
 </script>
