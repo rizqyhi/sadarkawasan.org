@@ -15,7 +15,18 @@
         style="height: 300px"
         ref="caMap"
       >
-        <v-tilelayer-googlemutant apikey="AIzaSyAZ9zikt49fhL3mdBLzU6iFaPXw6G8tV8M" />
+        <v-tilelayer-googlemutant
+          :apikey="gmapsApiKey"
+          :options="{ type: 'terrain' }"
+          lang="id"
+          region="ID"
+        ></v-tilelayer-googlemutant>
+
+        <l-geo-json
+          :geojson="fallbackMapData"
+          :options-style="fallbackMapStyles"
+        ></l-geo-json>
+
         <l-marker
           :key="conservationArea.id"
           :lat-lng="[conservationArea.lat, conservationArea.lng]"
@@ -78,19 +89,22 @@
 
 <script>
 import L from 'leaflet'
-import { LMap, LMarker } from 'vue2-leaflet'
-import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
+import { LMap, LMarker, LGeoJson } from 'vue2-leaflet'
+import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant/Vue2LeafletGoogleMutant'
 import conservationAreaService from '@/services/conservationAreaService'
+import { checkFetchStatus } from '@/utils'
 
 export default {
   components: {
     LMap,
     LMarker,
+    LGeoJson,
     'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant
   },
 
   data () {
     return {
+      gmapsApiKey: process.env.VUE_APP_GMAPS_KEY,
       map: {
         minZoom: 5,
         center: L.latLng(-2.5, 118),
@@ -98,6 +112,11 @@ export default {
         options: {
           zoomSnap: 0.5
         }
+      },
+      fallbackMapData: null,
+      fallbackMapStyles: {
+        weight: 1,
+        color: '#28a745'
       },
       loading: true,
       conservationArea: {}
@@ -140,6 +159,15 @@ export default {
       })
     },
 
+    fetchFallbackMap () {
+      fetch('/data/indonesia.min.geojson')
+        .then(checkFetchStatus)
+        .then(response => response.json())
+        .then(data => {
+          this.fallbackMapData = data
+        })
+    },
+
     formatScientificName (text) {
       return text
         .replace(/(\(.*?\))/g, '<em>$1</em>')
@@ -149,6 +177,7 @@ export default {
 
   mounted () {
     this.getConservationArea(this.$route.params.id)
+    this.fetchFallbackMap()
     // this.resizeMap()
     // window.addEventListener('resize', this.resizeMap)
 
