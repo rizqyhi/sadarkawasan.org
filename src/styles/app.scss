@@ -5,4 +5,5 @@
 
 .leaflet-container {
   font-family: $font-family-base;
+  background: lighten($cyan, 50%);
 }

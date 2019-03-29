@@ -18,6 +18,11 @@
 
       <v-tilelayer-googlemutant :apikey="gmapsApiKey" />
 
+      <l-geo-json
+        :geojson="fallbackMapData"
+        :options-style="fallbackMapStyles"
+      ></l-geo-json>
+
       <l-marker
         v-for="area in filteredConservationAreas"
         :key="area.id"
@@ -33,11 +38,12 @@
 
 <script>
 import L from 'leaflet'
-import { LMap, LMarker, LTooltip, LControl } from 'vue2-leaflet'
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
+import { LMap, LMarker, LTooltip, LControl, LGeoJson } from 'vue2-leaflet'
 import MapSearchControl from '@/components/MapSearchControl'
 import MapFilterControl from '@/components/MapFilterControl'
 import conservationAreaService from '@/services/conservationAreaService'
+import { checkFetchStatus } from '@/utils'
 
 export default {
   components: {
@@ -45,6 +51,7 @@ export default {
     LMarker,
     LTooltip,
     LControl,
+    LGeoJson,
     MapSearchControl,
     MapFilterControl,
     'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant
@@ -60,6 +67,11 @@ export default {
         options: {
           zoomSnap: 0.5
         }
+      },
+      fallbackMapData: null,
+      fallbackMapStyles: {
+        weight: 1,
+        color: '#28a745'
       },
       conservationAreas: [],
       filteredConservationAreas: [],
@@ -121,6 +133,15 @@ export default {
     showAreaDetail (area) {
       let slug = area.name.toLowerCase().trim().replace(/[\s\W-]+/g, '-')
       this.$router.push(`/kawasan/${area.id}/${slug}`)
+    },
+
+    fetchFallbackMap () {
+      fetch('/data/indonesia.min.geojson')
+        .then(checkFetchStatus)
+        .then(response => response.json())
+        .then(data => {
+          this.fallbackMapData = data
+        })
     }
   },
 
@@ -132,6 +153,8 @@ export default {
     this.$nextTick(() => {
       this.$refs.caMap.mapObject.zoomControl.setPosition('bottomright')
     })
+
+    this.fetchFallbackMap()
   },
 
   destroyed () {
