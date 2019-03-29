@@ -24,8 +24,8 @@ export default {
 
   data () {
     return {
-      id: this.post.ID,
-      url: this.post.URL,
+      id: this.post.id,
+      url: this.post.url,
       date: this.post.date,
       title: this.post.title,
       content: this.post.excerpt
