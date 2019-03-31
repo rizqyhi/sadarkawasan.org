@@ -1,7 +1,12 @@
 const rp = require('request-promise');
 
 const feedgram = function (username) {
-  return rp('https://www.instagram.com/' + username)
+  return rp({
+    uri: 'https://www.instagram.com/' + username,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    }
+  })
     .then(html => {
       const data = html.match(/window._sharedData = (.+);</)
       const jsonData = JSON.parse(data[1])

@@ -56,7 +56,7 @@ exports.AlgoliaDeleteKawasan = functions.firestore.document('kawasan/{kawasanId}
 exports.fetchIgFeed = functions.https.onRequest((request, response) => {
   return feedgram('sadarkawasan')
     .then(data => {
-      var feedsRef = db.collection('ig-feeds')
+      var feedsRef = db.collection('media-feeds')
 
       data.map(post => {
         feedsRef.doc(post.shortcode).set(post, { merge: true })
@@ -69,5 +69,8 @@ exports.fetchIgFeed = functions.https.onRequest((request, response) => {
       })
 
       return response.send(data);
+    })
+    .catch(err => {
+      console.error(err)
     })
 });
