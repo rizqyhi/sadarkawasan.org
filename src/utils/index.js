@@ -7,3 +7,10 @@ export function checkFetchStatus (response) {
   error.response = response
   throw error
 }
+
+export const viewBreakpoints = {
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200
+}

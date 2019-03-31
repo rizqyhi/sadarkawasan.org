@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { viewBreakpoints } from '@/utils'
+
 export default {
   props: {
     value: {
@@ -24,6 +26,12 @@ export default {
       setTimeout(() => {
         this.$emit('input', event.target.value)
       }, 150)
+    }
+  },
+
+  mounted () {
+    if (window.innerWidth < viewBreakpoints.sm) {
+      this.$el.style.width = window.innerWidth - 20 + 'px'
     }
   }
 }
